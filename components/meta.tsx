@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import Head from 'next/head'
 
 const Meta = () => (
 	<Head>
@@ -21,6 +21,6 @@ const Meta = () => (
 		<link rel='icon' type='image/png' href='/images/favicon.png' />
 		<link rel='manifest' href='/manifest.json' />
 	</Head>
-);
+)
 
-export default Meta;
+export default Meta

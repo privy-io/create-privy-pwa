@@ -23,7 +23,7 @@ const Blobby = () => {
 			</svg>
 			<ellipse cx='147' cy='267' rx='59.994' ry='18' fill='#160B45'></ellipse>
 		</svg>
-	);
-};
+	)
+}
 
-export default Blobby;
+export default Blobby

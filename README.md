@@ -35,6 +35,10 @@ Setting up your PWA's manifest, which controls how it appears when installed on 
 
 Configuring your `PrivyProvider` component with your login methods, app ID, embedded wallet configuration, and more.
 
+#### `pages/index.tsx`
+
+Using Privy's `login` method and prompting users to install your PWA using the `beforeinstallprompt` event (Chrome-only).
+
 #### `pages/dashboard.tsx`
 
 Using Privy's `user` object and various linking methods (`linkApple`, `linkGoogle`, `linkPhone`).

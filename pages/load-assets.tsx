@@ -7,39 +7,43 @@ import { createWalletClient, custom, parseEther } from 'viem'
 import { goerli } from 'viem/chains'
 
 const LoadAssets = () => {
-	const { connectWallet } = usePrivy();
-	const { wallets } = useWallets();
-	const embeddedWallet = wallets.find((wallet) => wallet.walletClientType === 'privy');
-	const externalWallet = wallets.find((wallet) => wallet.walletClientType !== 'privy');
-	const [txIsLoading, setTxIsLoading] = useState(false);
-	const [txHash, setTxHash] = useState<string | undefined>();
+	const { connectWallet } = usePrivy()
+	const { wallets } = useWallets()
+	const embeddedWallet = wallets.find(
+		(wallet) => wallet.walletClientType === 'privy'
+	)
+	const externalWallet = wallets.find(
+		(wallet) => wallet.walletClientType !== 'privy'
+	)
+	const [txIsLoading, setTxIsLoading] = useState(false)
+	const [txHash, setTxHash] = useState<string | undefined>()
 
 	const onTransfer = async () => {
-		if (!externalWallet || !embeddedWallet) return;
+		if (!externalWallet || !embeddedWallet) return
 		try {
 			// Switch chain to Goerli
-			await externalWallet?.switchChain(5);
+			await externalWallet?.switchChain(5)
 
 			// Build viem wallet client for external wallet
-			const provider = await externalWallet?.getEthereumProvider();
+			const provider = await externalWallet?.getEthereumProvider()
 			const walletClient = createWalletClient({
 				account: externalWallet.address as `0x${string}`,
 				chain: goerli,
 				transport: custom(provider),
-			});
+			})
 
 			// Send transaction from external wallet
-			setTxIsLoading(true);
+			setTxIsLoading(true)
 			const _txHash = await walletClient.sendTransaction({
 				account: externalWallet.address as `0x${string}`,
 				to: embeddedWallet.address as `0x${string}`,
 				value: parseEther('0.005'),
-			});
-			setTxHash(_txHash);
+			})
+			setTxHash(_txHash)
 		} catch (e) {
-			console.error('Transfer failed with error ', e);
+			console.error('Transfer failed with error ', e)
 		}
-		setTxIsLoading(false);
+		setTxIsLoading(false)
 	}
 
 	return (
@@ -98,7 +102,7 @@ const LoadAssets = () => {
 				)}
 			</Section>
 		</AuthenticatedPage>
-	);
+	)
 }
 
-export default LoadAssets;
+export default LoadAssets

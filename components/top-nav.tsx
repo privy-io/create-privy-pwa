@@ -1,8 +1,8 @@
-import { useLogout, usePrivy } from '@privy-io/react-auth';
+import { useLogout, usePrivy } from '@privy-io/react-auth'
 
 const TopNav = () => {
-	const { ready, authenticated } = usePrivy();
-	const { logout } = useLogout();
+	const { ready, authenticated } = usePrivy()
+	const { logout } = useLogout()
 
 	return (
 		<div className='fixed top-0 left-0 z-20 w-full bg-zinc-900 pt-safe'>
@@ -25,7 +25,7 @@ const TopNav = () => {
 				</div>
 			</header>
 		</div>
-	);
-};
+	)
+}
 
-export default TopNav;
+export default TopNav

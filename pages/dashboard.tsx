@@ -1,11 +1,11 @@
-import AuthenticatedPage from '@/components/authenticated-page';
-import Section from '@/components/section';
-import { usePrivy } from '@privy-io/react-auth';
-import { links } from '@/lib/links';
+import AuthenticatedPage from '@/components/authenticated-page'
+import Section from '@/components/section'
+import { usePrivy } from '@privy-io/react-auth'
+import { links } from '@/lib/links'
 
 const Dashboard = () => {
 	// You can also import other linking methods, like linkWallet, linkEmail, linkDiscord, etc.
-	const { user, linkPhone, linkGoogle, linkApple } = usePrivy();
+	const { user, linkPhone, linkGoogle, linkApple } = usePrivy()
 	return (
 		<AuthenticatedPage>
 			<Section>
@@ -72,7 +72,7 @@ const Dashboard = () => {
 				</div>
 			</Section>
 		</AuthenticatedPage>
-	);
-};
+	)
+}
 
-export default Dashboard;
+export default Dashboard
