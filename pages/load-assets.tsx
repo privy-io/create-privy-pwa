@@ -4,7 +4,7 @@ import { links } from '@/lib/links'
 import { usePrivy, useWallets } from '@privy-io/react-auth'
 import { useState } from 'react'
 import { createWalletClient, custom, parseEther } from 'viem'
-import { goerli } from 'viem/chains'
+import { baseGoerli } from 'viem/chains'
 
 const LoadAssets = () => {
 	const { connectWallet } = usePrivy()
@@ -21,14 +21,14 @@ const LoadAssets = () => {
 	const onTransfer = async () => {
 		if (!externalWallet || !embeddedWallet) return
 		try {
-			// Switch chain to Goerli
-			await externalWallet?.switchChain(5)
+			// Switch chain to Base Goerli
+			await externalWallet.switchChain(baseGoerli.id)
 
 			// Build viem wallet client for external wallet
 			const provider = await externalWallet?.getEthereumProvider()
 			const walletClient = createWalletClient({
 				account: externalWallet.address as `0x${string}`,
-				chain: goerli,
+				chain: baseGoerli,
 				transport: custom(provider),
 			})
 
@@ -91,7 +91,7 @@ const LoadAssets = () => {
 						See your transaction on{' '}
 						<a
 							className='underline'
-							href={`${links.goerli.transactionExplorer}${txHash}`}
+							href={`${links.baseGoerli.transactionExplorer}${txHash}`}
 							target='_blank'
 							rel='noreferrer'
 						>
