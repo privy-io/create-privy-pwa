@@ -25,7 +25,7 @@ const LoadAssets = () => {
 			await externalWallet.switchChain(baseGoerli.id)
 
 			// Build viem wallet client for external wallet
-			const provider = await externalWallet?.getEthereumProvider()
+			const provider = await externalWallet.getEthereumProvider()
 			const walletClient = createWalletClient({
 				account: externalWallet.address as `0x${string}`,
 				chain: baseGoerli,
