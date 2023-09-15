@@ -1,0 +1,44 @@
+{
+	"name": "next-pwa-template",
+	"version": "0.0.0",
+	"license": "MIT",
+	"scripts": {
+		"dev": "next dev -p 3004",
+		"build": "next build",
+		"start": "next start -p 3004",
+		"lint": "next lint",
+		"format": "eslint \"components/**/*.{ts,tsx,js,jsx}\" \"pages/**/*.{ts,tsx,js,jsx}\" --fix && prettier --write \"components/**/*.{ts,tsx,js,jsx}\" \"pages/**/*.{ts,tsx,js,jsx}\""
+	},
+	"dependencies": {
+		"@heroicons/react": "^2.0.18",
+		"@privy-io/react-auth": "^1.38.0",
+		"@typescript-eslint/eslint-plugin": "^6.7.0",
+		"@typescript-eslint/parser": "^6.7.0",
+		"next": "12.1.6",
+		"next-pwa": "^5.5.2",
+		"next-themes": "^0.2.0",
+		"react": "18.1.0",
+		"react-dom": "18.1.0",
+		"viem": "^1.10.13"
+	},
+	"devDependencies": {
+		"@types/node": "^17.0.35",
+		"@types/react": "^18.0.9",
+		"autoprefixer": "^10.4.7",
+		"eslint": "^8.49.0",
+		"eslint-config-next": "13.4.19",
+		"eslint-config-prettier": "^9.0.0",
+		"postcss": "^8.4.14",
+		"prettier": "^2.6.2",
+		"prettier-plugin-tailwindcss": "^0.1.11",
+		"tailwindcss": "^3.0.24",
+		"tailwindcss-safe-area": "^0.2.2",
+		"typescript": "^5.1.6"
+	},
+	"prettier": {
+		"semi": false,
+		"singleQuote": true,
+		"jsxSingleQuote": true,
+		"useTabs": true
+	}
+}

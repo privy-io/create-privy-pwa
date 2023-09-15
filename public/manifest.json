@@ -1,0 +1,23 @@
+{
+	"name": "Privy PWA Demo",
+	"short_name": "Privy PWA",
+	"description": "Demo of using Privy in a progressive web app (PWA)",
+	"icons": [
+		{
+			"src": "/images/blobby-192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "/images/blobby-512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"start_url": "/?source=pwa",
+	"background_color": "#1d2020",
+	"orientation": "portrait",
+	"display": "standalone",
+	"scope": "/",
+	"theme_color": "#1d2020"
+}
