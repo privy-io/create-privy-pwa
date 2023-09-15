@@ -2,8 +2,11 @@ import Blobby from '@/components/svg/blobby'
 import { useLogin, usePrivy } from '@privy-io/react-auth'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react'
 
 const Index = () => {
+	const [isInstalled, setIsInstalled] = useState(false)
+	const [installationPrompt, setInstallationPrompt] = useState<any>()
 	const router = useRouter()
 	const { ready, authenticated } = usePrivy()
 	const { login } = useLogin({
@@ -22,6 +25,24 @@ const Index = () => {
 		},
 	})
 
+	useEffect(() => {
+		// Helps you prompt your users to install your PWA
+		// See https://web.dev/learn/pwa/installation-prompt/
+		window.addEventListener('beforeinstallprompt', (e) => {
+			e.preventDefault()
+			setIsInstalled(false)
+			setInstallationPrompt(e)
+		})
+	}, [])
+
+	const promptToInstall = async () => {
+		if (!installationPrompt) return
+		installationPrompt.prompt()
+		installationPrompt.userChoice.then((response: { outcome: string }) => {
+			setIsInstalled(response.outcome === 'accepted')
+		})
+	}
+
 	return (
 		<>
 			<Head>
@@ -33,18 +54,24 @@ const Index = () => {
 					<h2 className='my-4 text-xl font-semibold text-gray-800'>
 						Privy PWA Template
 					</h2>
-					<h2 className='my-4 text-md text-gray-800'>
-						You can install this app directly to your mobile device.
-					</h2>
 					<div className='mt-2 w-1/2'>
-						{/* Always check that Privy is `ready` and the user is not `authenticated` before calling `login` */}
-						<button
-							className='my-4 w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm disabled:bg-indigo-400'
-							onClick={login}
-							disabled={!ready || authenticated}
-						>
-							Login
-						</button>
+						{isInstalled ? (
+							<button
+								className='my-4 w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm disabled:bg-indigo-400'
+								onClick={login}
+								// Always check that Privy is `ready` and the user is not `authenticated` before calling `login`
+								disabled={!ready || authenticated}
+							>
+								Login
+							</button>
+						) : (
+							<button
+								className='my-4 w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm disabled:bg-indigo-400'
+								onClick={promptToInstall}
+							>
+								Install App
+							</button>
+						)}
 					</div>
 				</div>
 			</main>

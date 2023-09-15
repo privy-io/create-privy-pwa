@@ -1,13 +1,13 @@
-import Link from 'next/link';
-import { useRouter } from 'next/router';
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 import {
 	UserIcon,
 	WalletIcon,
 	CurrencyDollarIcon,
-} from '@heroicons/react/24/outline';
+} from '@heroicons/react/24/outline'
 
 const BottomNav = () => {
-	const router = useRouter();
+	const router = useRouter()
 
 	return (
 		<div className='sm:hidden'>

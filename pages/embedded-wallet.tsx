@@ -1,23 +1,25 @@
-import AuthenticatedPage from '@/components/authenticated-page';
-import Section from '@/components/section';
-import { links } from '@/lib/links';
-import { usePrivy, useWallets } from '@privy-io/react-auth';
-import { useState } from 'react';
-import { createWalletClient, custom, isAddress, parseEther } from 'viem';
-import { goerli } from 'viem/chains';
+import AuthenticatedPage from '@/components/authenticated-page'
+import Section from '@/components/section'
+import { links } from '@/lib/links'
+import { usePrivy, useWallets } from '@privy-io/react-auth'
+import { useState } from 'react'
+import { createWalletClient, custom, isAddress, parseEther } from 'viem'
+import { goerli } from 'viem/chains'
 
 const EmbeddedWallet = () => {
-	const { signMessage, sendTransaction, exportWallet } = usePrivy();
-	const { wallets } = useWallets();
-	const embeddedWallet = wallets.find((wallet) => wallet.walletClientType === 'privy');
+	const { signMessage, sendTransaction, exportWallet } = usePrivy()
+	const { wallets } = useWallets()
+	const embeddedWallet = wallets.find(
+		(wallet) => wallet.walletClientType === 'privy'
+	)
 
 	// Signature state
-	const [signature, setSignature] = useState<string | undefined>();
+	const [signature, setSignature] = useState<string | undefined>()
 
 	// Transaction state
-	const [recipientAddress, setRecipientAddress] = useState<string | undefined>();
-	const [txHash, setTxHash] = useState<string | undefined>();
-	const [txIsLoading, setTxIsLoading] = useState(false);
+	const [recipientAddress, setRecipientAddress] = useState<string | undefined>()
+	const [txHash, setTxHash] = useState<string | undefined>()
+	const [txIsLoading, setTxIsLoading] = useState(false)
 
 	const onSign = async () => {
 		try {
@@ -28,21 +30,21 @@ const EmbeddedWallet = () => {
 		} catch (e) {
 			console.error('Signature failed with error ', e)
 		}
-	};
+	}
 
 	const onTransfer = async () => {
-		if (!embeddedWallet) return;
+		if (!embeddedWallet) return
 		try {
 			// Switch network to Goerli
-			await embeddedWallet?.switchChain(5);
+			await embeddedWallet?.switchChain(5)
 			// Get an EIP1193 provider from the embedded wallet
-			const provider = await embeddedWallet.getEthereumProvider();
+			const provider = await embeddedWallet.getEthereumProvider()
 			// From the EIP1193 provider, create a viem wallet client
 			const walletClient = createWalletClient({
 				account: embeddedWallet.address as `0x${string}`,
 				chain: goerli,
 				transport: custom(provider),
-			});
+			})
 
 			// Send transaction using the viem wallet client. Alternatively, you
 			// may use Privy's `sendTransaction` method. This is just an example
@@ -58,7 +60,7 @@ const EmbeddedWallet = () => {
 			console.error('Transfer failed with error ', e)
 		}
 		setTxIsLoading(false)
-	};
+	}
 
 	return (
 		<AuthenticatedPage>

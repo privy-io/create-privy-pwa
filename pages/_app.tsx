@@ -1,7 +1,7 @@
-import type { AppProps } from 'next/app';
-import Meta from '@/components/meta';
-import '@/styles/globals.css';
-import { PrivyProvider } from '@privy-io/react-auth';
+import type { AppProps } from 'next/app'
+import Meta from '@/components/meta'
+import '@/styles/globals.css'
+import { PrivyProvider } from '@privy-io/react-auth'
 
 const App = ({ Component, pageProps }: AppProps) => {
 	return (
@@ -17,7 +17,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 			<Meta />
 			<Component {...pageProps} />
 		</PrivyProvider>
-	);
-};
+	)
+}
 
-export default App;
+export default App
