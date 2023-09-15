@@ -7,7 +7,7 @@ This is a template progressive web app (PWA) built with [Privy](https://www.priv
 First, clone this repo:
 
 ```sh
-git clone https://
+git clone https://github.com/privy-io/create-privy-pwa.git
 ```
 
 Next, install dependencies, including `@privy-io/react-auth`, `viem`, and `next-pwa`:
