@@ -3,6 +3,7 @@ import { useLogin, usePrivy } from '@privy-io/react-auth'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
+import { isAndroid } from 'react-device-detect'
 
 const Index = () => {
 	const [isInstalled, setIsInstalled] = useState(false)
@@ -55,7 +56,14 @@ const Index = () => {
 						Privy PWA Template
 					</h2>
 					<div className='mt-2 w-1/2'>
-						{isInstalled ? (
+						{!isInstalled && isAndroid ? (
+							<button
+								className='my-4 w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm disabled:bg-indigo-400'
+								onClick={promptToInstall}
+							>
+								Install App
+							</button>
+						) : (
 							<button
 								className='my-4 w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm disabled:bg-indigo-400'
 								onClick={login}
@@ -63,13 +71,6 @@ const Index = () => {
 								disabled={!ready || authenticated}
 							>
 								Login
-							</button>
-						) : (
-							<button
-								className='my-4 w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm disabled:bg-indigo-400'
-								onClick={promptToInstall}
-							>
-								Install App
 							</button>
 						)}
 					</div>
