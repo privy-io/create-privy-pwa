@@ -39,7 +39,7 @@ Configuring your `PrivyProvider` component with your login methods, app ID, embe
 
 #### `pages/index.tsx`
 
-Using Privy's `login` method and prompting users to install your PWA using the `beforeinstallprompt` event (Chrome-only).
+Using Privy's `login` method and prompting users to install your PWA using the `beforeinstallprompt` event (Android/Chrome-only).
 
 #### `pages/dashboard.tsx`
 
@@ -52,9 +52,3 @@ Using Privy's embedded wallet to sign messages, send transactions (using viem!),
 #### `pages/load-assets.tsx`
 
 An example of a page you might have in your PWA to allow users to connect an external wallet, from which they can transfer assets to their embedded wallet.
-
-- The `PrivyProvider` is our top-level component in the hierarchy.
-- In the `PrivyProvider`, we also pass in:
-  - our Privy `appId` (retrieved from the Privy Console)
-  - a `config` to customize the look and feel of the Privy modal
-  - an (optional) `onSuccess` callback that redirects the user to the dashboard page upon login.
