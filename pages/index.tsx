@@ -29,6 +29,9 @@ const Index = () => {
 	useEffect(() => {
 		// Helps you prompt your users to install your PWA
 		// See https://web.dev/learn/pwa/installation-prompt/
+		// iOS Safari does not have this event, so you will have
+		// to prompt users to add the PWA via your own UI (e.g. a
+		// pop-up modal)
 		window.addEventListener('beforeinstallprompt', (e) => {
 			e.preventDefault()
 			setIsInstalled(false)
