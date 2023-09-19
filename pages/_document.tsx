@@ -5,7 +5,7 @@ class MyDocument extends Document {
 		return (
 			<Html lang='en'>
 				<Head />
-				<body>
+				<body style={{ width: '100%' }}>
 					<Main />
 					<NextScript />
 				</body>
