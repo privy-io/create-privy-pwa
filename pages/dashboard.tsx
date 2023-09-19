@@ -18,7 +18,7 @@ const Dashboard = () => {
 						href={links.docs.userObject}
 						className='underline'
 						target='_blank'
-						rel='noreferrer'
+						rel='noreferrer noopener'
 					>
 						learn more
 					</a>
@@ -26,9 +26,9 @@ const Dashboard = () => {
 				</p>
 				<textarea
 					value={JSON.stringify(user, null, 2)}
-					className='mt-4 h-64 w-full rounded-md bg-slate-700 p-4 font-mono text-xs text-slate-50'
+					className='mt-4 h-64 w-full rounded-md bg-slate-700 p-4 font-mono text-xs text-slate-50 disabled:bg-slate-700'
 					rows={JSON.stringify(user, null, 2).split('\n').length}
-					disabled
+					readOnly
 				/>
 			</Section>
 			<Section>
@@ -41,7 +41,7 @@ const Dashboard = () => {
 						href={links.docs.linking}
 						className='underline'
 						target='_blank'
-						rel='noreferrer'
+						rel='noreferrer noopener'
 					>
 						learn more
 					</a>

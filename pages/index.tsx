@@ -36,15 +36,14 @@ const Index = () => {
 		})
 	}, [])
 
-
 	useEffect(() => {
 		// Detect if the PWA is installed
 		// https://web.dev/learn/pwa/detection/#detecting-the-transfer
 		window.addEventListener('DOMContentLoaded', () => {
 			if (window.matchMedia('(display-mode: standalone)').matches) {
-			  setIsInstalled(true);
+				setIsInstalled(true)
 			}
-		});
+		})
 	})
 
 	const promptToInstall = async () => {

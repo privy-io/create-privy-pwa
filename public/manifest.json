@@ -18,6 +18,6 @@
 	"background_color": "#1d2020",
 	"orientation": "portrait",
 	"display": "standalone",
-	"scope": "/",
+	"scope": "/pages/",
 	"theme_color": "#1d2020"
 }

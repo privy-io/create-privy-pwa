@@ -82,7 +82,7 @@ const EmbeddedWallet = () => {
 					value={signature || 'No signature yet'}
 					className='mt-4 h-fit w-full rounded-md bg-slate-700 p-4 font-mono text-xs text-slate-50'
 					rows={3}
-					disabled
+					readOnly
 				/>
 			</Section>
 			<Section>
@@ -120,7 +120,7 @@ const EmbeddedWallet = () => {
 							className='underline'
 							href={`${links.baseGoerli.transactionExplorer}${txHash}`}
 							target='_blank'
-							rel='noreferrer'
+							rel='noreferrer noopener'
 						>
 							etherscan
 						</a>
@@ -154,7 +154,7 @@ const EmbeddedWallet = () => {
 						className='underline'
 						href={links.docs.embeddedWallets}
 						target='_blank'
-						rel='noreferrer'
+						rel='noreferrer noopener'
 					>
 						docs
 					</a>{' '}
