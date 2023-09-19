@@ -98,7 +98,7 @@ const LoadAssets = () => {
 				<button
 					type='button'
 					className='mt-2 w-full rounded-md bg-indigo-600 py-2 text-sm font-semibold text-white shadow-sm disabled:bg-indigo-400'
-					onClick={onTransfer}
+					onClick={onAddNetwork}
 					disabled={!externalWallet}
 				>
 					Add Base Goerli Network
