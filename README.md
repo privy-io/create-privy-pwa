@@ -38,7 +38,7 @@ npm run dev
 
 visit `http://localhost:3004` in your browser to see the PWA in action!
 
-For testing development on mobile, we recommend using `ngrok` ([guide](https://www.aleksandrhovhannisyan.com/blog/test-localhost-on-mobile/)).
+For testing development on mobile, we recommend using `ngrok` ([guide](https://www.aleksandrhovhannisyan.com/blog/test-localhost-on-mobile/)), since privy makes use of [crypto.subtle](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/subtle) which requires a **secure context** _(`https`)_
 
 ## Points of Interest
 
