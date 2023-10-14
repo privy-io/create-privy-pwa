@@ -9,21 +9,36 @@ You can see the deployed version at [pwa.privy.io](https://pwa.privy.io/).
 First, clone this repo:
 
 ```sh
-git clone https://github.com/privy-io/create-privy-pwa.git
+npx degit privy-io/create-privy-pwa my-pwa-project
+cd my-pwa-project
 ```
 
-Next, install dependencies, including `@privy-io/react-auth`, `viem`, and `next-pwa`:
+Next, install dependencies, _(includes `@privy-io/react-auth`, `viem`, and `next-pwa`:)_
 
 ```sh
 pnpm i
 ```
 
-Next, run `cp .env.example.local .env.local` to create your own env file, and add your Privy App ID:
+Next, create your own env file by running
+
+```
+cp .env.example.local .env.local
+```
+
+and add your Privy App ID:
 ```
 NEXT_PUBLIC_PRIVY_APP_ID=insert-your-app-id
 ```
 
-Lastly, run `npm run dev` and visit `http://localhost:3004` in your browser to see the PWA in action! For testing development on mobile, we recommend using `ngrok` ([guide](https://www.aleksandrhovhannisyan.com/blog/test-localhost-on-mobile/)).
+Lastly, run
+
+```
+npm run dev
+```
+
+visit `http://localhost:3004` in your browser to see the PWA in action!
+
+For testing development on mobile, we recommend using `ngrok` ([guide](https://www.aleksandrhovhannisyan.com/blog/test-localhost-on-mobile/)).
 
 ## Points of Interest
 
