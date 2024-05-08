@@ -16,7 +16,7 @@ cd my-pwa-project
 Next, install dependencies, _(includes `@privy-io/react-auth`, `viem`, and `next-pwa`:)_
 
 ```sh
-pnpm i
+npm i
 ```
 
 Next, create your own env file by running
