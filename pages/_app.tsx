@@ -8,7 +8,6 @@ const App = ({ Component, pageProps }: AppProps) => {
 		<PrivyProvider
 			appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID as string}
 			config={{
-				loginMethods: ['sms', 'apple', 'google'],
 				embeddedWallets: {
 					createOnLogin: 'all-users',
 				},
